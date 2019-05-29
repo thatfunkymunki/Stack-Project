@@ -8,7 +8,7 @@ package PRJ1AmezquitaR;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import java.lang.*;
+import java.util.*;
 
 
 public class PRJ1AmezquitaR {
@@ -114,23 +114,23 @@ public class PRJ1AmezquitaR {
     }//end GUI class
     
     //stack interface
-    public interface Stack {
+    public interface Stack<E> {
         public boolean isFull();
         public boolean isEmpty(); 
-        public String peek();
-        public void push(String item);
-        public String pop();
+        public E peek() throws EmptyStackException;
+        public void push(E item)throws EmptyStackException;
+        public E pop()throws EmptyStackException;
     
     }//end stack
     
     //class for constructing stack
-    public static class ArrayStack implements Stack{
+    public static class ArrayStack<E> implements Stack<E>{
         
         //variable for default size of stack
-        private static final int defaultSize = 10;
+        private static int DEFAULT_SIZE = 10;
         
         //initialize array
-        String elements[];
+        E elements[];
         
         //variable for how many elements are in the array
         private int numberOfElements = 0;
@@ -138,7 +138,7 @@ public class PRJ1AmezquitaR {
         //constructor for ArrayStack
         public ArrayStack(){
                       
-           elements = new String[defaultSize];
+           this(DEFAULT_SIZE);
                    
         }// end ArrayStack()
         
@@ -154,16 +154,20 @@ public class PRJ1AmezquitaR {
             return true;
             
         }// end isEmpty
-        public String peek(){
+        public E peek(){
             
             //place holder
             return "test";            
             
         }// end peek
-        public void push(String item){
+        
+        //push method
+        public void push(E item){
             
-        }// end push
-        public String pop(){
+            
+            
+        }
+        public E pop(){
             
             //place holder
             return "test";
