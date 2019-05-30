@@ -130,7 +130,7 @@ public class PRJ1AmezquitaR {
         private static int DEFAULT_SIZE = 10;
         
         //initialize array
-        private Object elements[];
+        private E[] elements;
         
         //variable for how many elements are in the array
         private int numberOfElements = 0;
@@ -141,8 +141,9 @@ public class PRJ1AmezquitaR {
            this(DEFAULT_SIZE);
                    
         }// end ArrayStack()
-        public <E> ArrayStack(int size){
-           elements = new Object[size];
+        public ArrayStack(int size){
+           final E[] elements = (E[]) new Object[size];
+           this.elements = elements;
         }
         
         public boolean isFull(){
@@ -160,7 +161,7 @@ public class PRJ1AmezquitaR {
         public E peek(){
             
             //place holder
-            return (E) elements[numberOfElements];            
+            return elements[numberOfElements];            
             
         }// end peek
         
