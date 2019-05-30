@@ -117,9 +117,9 @@ public class PRJ1AmezquitaR {
     public interface Stack<E> {
         public boolean isFull();
         public boolean isEmpty(); 
-        public E peek() throws EmptyStackException;
-        public void push(E item)throws EmptyStackException;
-        public E pop()throws EmptyStackException;
+        public E peek(); // throws EmptyStackException;
+        public void push(E item); //throws EmptyStackException;
+        public E pop(); //throws EmptyStackException;
     
     }//end stack
     
@@ -130,7 +130,7 @@ public class PRJ1AmezquitaR {
         private static int DEFAULT_SIZE = 10;
         
         //initialize array
-        E elements[];
+        private Object elements[];
         
         //variable for how many elements are in the array
         private int numberOfElements = 0;
@@ -141,6 +141,9 @@ public class PRJ1AmezquitaR {
            this(DEFAULT_SIZE);
                    
         }// end ArrayStack()
+        public <E> ArrayStack(int size){
+           elements = new Object[size];
+        }
         
         public boolean isFull(){
             
@@ -157,7 +160,7 @@ public class PRJ1AmezquitaR {
         public E peek(){
             
             //place holder
-            return "test";            
+            return (E) elements[numberOfElements];            
             
         }// end peek
         
@@ -170,7 +173,7 @@ public class PRJ1AmezquitaR {
         public E pop(){
             
             //place holder
-            return "test";
+            return null;
             
         }// end pop
         
